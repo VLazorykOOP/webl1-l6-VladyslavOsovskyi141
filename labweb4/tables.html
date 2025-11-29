@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Таблиця</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 0;
+            height: 25px; /* для наочності */
+        }
+
+        .very-small {
+            width: 30px;
+        }
+
+        .very-large {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+
+<table id="geom-table" lang="uk" dir="ltr" align="center">
+    <colgroup>
+        <col class="very-small">
+        <col class="very-large">
+        <col class="very-large">
+        <col class="very-small">
+    </colgroup>
+
+    <thead>
+        <tr valign="middle">
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <!-- Другий рядок -->
+        <tr valign="top" style="height:25px;">
+            <td class="very-small"></td>
+            <td>
+                <div style="display:flex; height:100%;">
+                    <div style="flex:1;"></div>
+                    <div style="flex:1; display:flex;">
+                        <div style="flex:1; border-left:1px solid #333;"></div>
+                        <div style="flex:1; border-left:1px solid #333;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div style="display:flex; height:100%;">
+                    <div style="flex:1; border-left:0;"></div>
+                    <div style="flex:1; border-left:1px solid #333;"></div>
+                    <div style="flex:1; border-left:1px solid #333;"></div>
+                </div>
+            </td>
+            <td class="very-small"></td>
+        </tr>
+
+        <!-- Третій рядок (50px, виправлений бордер) -->
+        <tr valign="top" style="height:50px;">
+            <td class="very-small"></td>
+
+            <!-- 2 колонка -->
+            <td>
+                <div style="display:flex; flex-direction:column; height:100%;">
+                    <!-- Верхня половина -->
+                    <div style="flex:1; display:flex; border-bottom:0px solid #333;">
+                        <div style="flex:1; border-bottom:1px solid #333;"></div>
+                        <div style="flex:1; display:flex;">
+                            <div style="flex:1; border-left:1px solid #333; border-bottom:1px solid #333;"></div>
+                            <div style="flex:1; border-left:1px solid #333;"></div>
+                        </div>
+                    </div>
+                    <!-- Нижня половина -->
+                    <div style="flex:1; display:flex;">
+                        <div style="flex:1;"></div>
+                        <div style="flex:1; display:flex;">
+                            <div style="flex:1; border-left:1px solid #333;"></div>
+                            <div style="flex:1; border-left:1px solid #333;"></div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+
+            <!-- 3 колонка -->
+            <td>
+                <div style="display:flex; flex-direction:column; height:100%;">
+                    <!-- Верхня половина -->
+                    <div style="flex:1; display:flex; border-bottom:1px solid #333;">
+                        <div style="flex:1;"></div>
+                        <div style="flex:2; border-left:1px solid #333;"></div>
+                    </div>
+                    <!-- Нижня половина -->
+                    <div style="flex:1; display:flex;">
+                        <div style="flex:1"></div>
+                        <div style="flex:1; border-left:1px solid #333;"></div>
+                        <div style="flex:1; border-left:1px solid #333;"></div>
+                    </div>
+                </div>
+            </td>
+
+            <td class="very-small"></td>
+        </tr>
+
+        <!-- Копія третього рядка -->
+        <tr valign="top" style="height:50px;">
+            <td class="very-small"></td>
+
+            <td>
+                <div style="display:flex; flex-direction:column; height:100%;">
+                    <div style="flex:1; display:flex; border-bottom:0px solid #333;">
+                        <div style="flex:1; border-bottom:1px solid #333;"></div>
+                        <div style="flex:1; display:flex;">
+                            <div style="flex:1; border-left:1px solid #333; border-bottom:1px solid #333;"></div>
+                            <div style="flex:1; border-left:1px solid #333;"></div>
+                        </div>
+                    </div>
+                    <div style="flex:1; display:flex;">
+                        <div style="flex:1;"></div>
+                        <div style="flex:1; display:flex;">
+                            <div style="flex:1; border-left:1px solid #333;"></div>
+                            <div style="flex:1; border-left:1px solid #333;"></div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div style="display:flex; flex-direction:column; height:100%;">
+                    <div style="flex:1; display:flex; border-bottom:1px solid #333;">
+                        <div style="flex:1;"></div>
+                        <div style="flex:2; border-left:1px solid #333;"></div>
+                    </div>
+                    <div style="flex:1; display:flex;">
+                        <div style="flex:1;"></div>
+                        <div style="flex:1; border-left:1px solid #333;"></div>
+                        <div style="flex:1; border-left:1px solid #333;"></div>
+                    </div>
+                </div>
+            </td>
+
+            <td class="very-small"></td>
+        </tr>
+
+        <!-- Копія третього рядка -->
+        <tr valign="top" style="height:50px;">
+            <td class="very-small"></td>
+
+            <td>
+                <div style="display:flex; flex-direction:column; height:100%;">
+                    <div style="flex:1; display:flex; border-bottom:0px solid #333;">
+                        <div style="flex:1; border-bottom:1px solid #333;"></div>
+                        <div style="flex:1; display:flex;">
+                            <div style="flex:1; border-left:1px solid #333; border-bottom:1px solid #333;"></div>
+                            <div style="flex:1; border-left:1px solid #333;"></div>
+                        </div>
+                    </div>
+                    <div style="flex:1; display:flex;">
+                        <div style="flex:1;"></div>
+                        <div style="flex:1; display:flex;">
+                            <div style="flex:1; border-left:1px solid #333;"></div>
+                            <div style="flex:1; border-left:1px solid #333;"></div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div style="display:flex; flex-direction:column; height:100%;">
+                    <div style="flex:1; display:flex; border-bottom:1px solid #333;">
+                        <div style="flex:1;"></div>
+                        <div style="flex:2; border-left:1px solid #333;"></div>
+                    </div>
+                    <div style="flex:1; display:flex;">
+                        <div style="flex:1;"></div>
+                        <div style="flex:1; border-left:1px solid #333;"></div>
+                        <div style="flex:1; border-left:1px solid #333;"></div>
+                    </div>
+                </div>
+            </td>
+
+            <td class="very-small"></td>
+        </tr>
+
+        <!-- Копія третього рядка -->
+        <tr valign="top" style="height:50px;">
+            <td class="very-small"></td>
+
+            <td>
+                <div style="display:flex; flex-direction:column; height:100%;">
+                    <div style="flex:1; display:flex; border-bottom:0px solid #333;">
+                        <div style="flex:1; border-bottom:1px solid #333;"></div>
+                        <div style="flex:1; display:flex;">
+                            <div style="flex:1; border-left:1px solid #333; border-bottom:1px solid #333;"></div>
+                            <div style="flex:1; border-left:1px solid #333;"></div>
+                        </div>
+                    </div>
+                    <div style="flex:1; display:flex;">
+                        <div style="flex:1;"></div>
+                        <div style="flex:1; display:flex;">
+                            <div style="flex:1; border-left:1px solid #333;"></div>
+                            <div style="flex:1; border-left:1px solid #333;"></div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div style="display:flex; flex-direction:column; height:100%;">
+                    <div style="flex:1; display:flex; border-bottom:1px solid #333;">
+                        <div style="flex:1;"></div>
+                        <div style="flex:2; border-left:1px solid #333;"></div>
+                    </div>
+                    <div style="flex:1; display:flex;">
+                        <div style="flex:1;"></div>
+                        <div style="flex:1; border-left:1px solid #333;"></div>
+                        <div style="flex:1; border-left:1px solid #333;"></div>
+                    </div>
+                </div>
+            </td>
+
+            <td class="very-small"></td>
+        </tr>
+        <tr valign="top" style="height:25px;">
+            <td class="very-small"></td>
+            <td>
+                <div style="display:flex; height:100%;">
+                    <div style="flex:1;"></div>
+                    <div style="flex:1; display:flex;">
+                        <div style="flex:1; border-left:1px solid #333;"></div>
+                        <div style="flex:1; border-left:1px solid #333;"></div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div style="display:flex; height:100%;">
+                    <div style="flex:1; border-left:0;"></div>
+                    <div style="flex:1; border-left:1px solid #333;"></div>
+                    <div style="flex:1; border-left:1px solid #333;"></div>
+                </div>
+            </td>
+            <td class="very-small"></td>
+        </tr>
+
+    </tbody>
+</table>
+
+</body>
+</html>
