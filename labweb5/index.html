@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Форма: Інформація про товари</title>
+<style>
+body {
+  font-family: 'Palatino Linotype', serif;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 0 15px;
+  background-color: #e6fff2;
+  color: #033d00;
+}
+
+h1 {
+  text-align: center;
+  color: #026400;
+}
+
+fieldset {
+  border: 2px solid #026400;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f0fff5;
+}
+
+legend {
+  font-weight: bold;
+  font-variant: small-caps;
+  color: #026400;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-row label {
+  width: 130px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  flex: 1;
+  max-width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #026400;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #026400;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+input[type=submit]:hover {
+  background-color: #034d00;
+}
+
+em {
+  color: #d60000;
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Нові стилі для повідомлень про помилку */
+.error-message {
+  color: #f00;
+  font-size: 0.9em;
+  margin-left: 140px;
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<h1>Додати товар</h1>
+
+<form id="frmProducts" name="frmProducts" class="web-form" lang="uk" action="#">
+<fieldset>
+<legend>Основна інформація</legend>
+<div class="form-row">
+  <label for="prod_name">Назва товару <em>*</em></label>
+  <input id="prod_name" name="prod_name" placeholder="Наприклад: Молоко" required>
+  <div class="error-message" id="err_prod_name">Будь ласка, введіть назву товару</div>
+</div>
+<div class="form-row">
+  <label for="category">Категорія</label>
+  <select id="category" name="category">
+    <option value="food">Їжа</option>
+    <option value="clothes">Одяг</option>
+    <option value="electronics">Електроніка</option>
+    <option value="other">Інше</option>
+  </select>
+</div>
+<div class="form-row">
+  <label for="quantity">Кількість <em>*</em></label>
+  <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+  <div class="error-message" id="err_quantity">Кількість має бути від 1 і більше</div>
+</div>
+<div class="form-row">
+  <label for="price">Ціна (грн) <em>*</em></label>
+  <input type="number" id="price" name="price" min="0" step="0.01" placeholder="0.00" required>
+  <div class="error-message" id="err_price">Введіть коректну ціну</div>
+</div>
+<div class="form-row">
+  <label for="desc">Опис</label>
+  <textarea id="desc" name="desc" placeholder="Короткий опис товару"></textarea>
+</div>
+</fieldset>
+
+<fieldset>
+<legend>Контактна інформація постачальника</legend>
+<div class="form-row">
+  <label for="supplier_name">Ім'я <em>*</em></label>
+  <input id="supplier_name" name="supplier_name" placeholder="Петро Степанович" required>
+  <div class="error-message" id="err_supplier_name">Будь ласка, введіть ім'я постачальника</div>
+</div>
+<div class="form-row">
+  <label for="supplier_tel">Телефон</label>
+  <input type="tel" id="supplier_tel" name="supplier_tel" placeholder="+38 0xx xxx xxxx">
+</div>
+<div class="form-row">
+  <label for="supplier_email">Email <em>*</em></label>
+  <input id="supplier_email" name="supplier_email" placeholder="example@domain.com" pattern="\S+@[a-z]+\.[a-z]+" required>
+  <div class="error-message" id="err_supplier_email">Введіть коректний email</div>
+</div>
+</fieldset>
+
+<div style="text-align:center; margin-top:20px;">
+  <input type="submit" value="Відправити інформацію">
+</div>
+</form>
+
+<script>
+document.getElementById("frmProducts").addEventListener("submit", function(e){
+  let valid = true;
+
+  // Очистити попередні повідомлення
+  document.querySelectorAll(".error-message").forEach(el => el.style.display = "none");
+
+  const prodName = document.getElementById("prod_name");
+  if(!prodName.value.trim()){
+    document.getElementById("err_prod_name").style.display = "block";
+    valid = false;
+  }
+
+  const quantity = document.getElementById("quantity");
+  if(quantity.value < 1){
+    document.getElementById("err_quantity").style.display = "block";
+    valid = false;
+  }
+
+  const price = document.getElementById("price");
+  if(price.value === "" || price.value < 0){
+    document.getElementById("err_price").style.display = "block";
+    valid = false;
+  }
+
+  const supplierName = document.getElementById("supplier_name");
+  if(!supplierName.value.trim()){
+    document.getElementById("err_supplier_name").style.display = "block";
+    valid = false;
+  }
+
+  const supplierEmail = document.getElementById("supplier_email");
+  const emailPattern = /\S+@[a-z]+\.[a-z]+/;
+  if(!emailPattern.test(supplierEmail.value)){
+    document.getElementById("err_supplier_email").style.display = "block";
+    valid = false;
+  }
+
+  if(!valid) e.preventDefault();
+});
+</script>
+
+</body>
+</html>
